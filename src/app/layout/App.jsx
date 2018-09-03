@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 // This gets rendered onto our page, injected
 // in place of content in index.html
 class App extends Component {
@@ -9,6 +8,7 @@ class App extends Component {
       <div>
         <h1>Re-vents</h1>
       </div>
+        <EventDashboard/>
     );
   }
 }
