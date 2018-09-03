@@ -20,3 +20,13 @@ class App extends Component {
 
 export default App;
 
+/* Identifying state
+  EventDashboard
+    Events [] - Stateful
+    isOpen - Stateful
+  EventForm
+    Forms manage state - Stateful
+  Navbar
+    CreateEvent, Login, Signout - all rely on user interation
+      Stateful
+*/

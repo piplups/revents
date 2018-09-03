@@ -56,15 +56,41 @@ const eventsDashboard = [
 
 
 class EventDashboard extends Component {
+  state = {
+    events: eventsDashboard,
+    isOpen: false
+
+    //Inverse dataflow: These binds the functions to the state
+    //Binds all event handlers in the constructor
+    //this.handleFormOpen = this.handleFormOpen.bind(this);
+    //this.handleCancel = this.handleCancel.bind(this);
+  }
+
+  //opens the form once "create event" is clicked on RH side
+  handleFormOpen = () =>{
+    this.setState({
+      isOpen: true
+    })
+  }
+
+  handleCancel = () => {
+    this.setState ({
+      isOpen: false
+    })
+  }
+
   render() {
+    //using  x && y is the same thing as if x, then y
     return (
       <Grid>
         <Grid.Column width={10}>
-            <EventList events={eventsDashboard}/>
+            <EventList events={this.state.events}/>
         </Grid.Column>
         <Grid.Column width={6}>
-          <Button positive content='Create Event'/>
-            <EventForm/>
+          <Button onClick={this.handleFormOpen} positive content='Create Event'/>
+            {this.state.isOpen && 
+            <EventForm handleCancel={this.handleCancel}
+            />}
         </Grid.Column>
       </Grid>
     )
